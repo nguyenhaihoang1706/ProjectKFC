@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css"
+    />
+    <!-- Fontawesome -->
+    <link rel="stylesheet" href="../assets/fonts/fontawesome-free-6.4.0-web/css/all.min.css" />
+
+    <link rel="stylesheet" href='./form.css'>
+    <title>Sign In KFC</title>
+</head>
+<body>
+       <h2>Sign in/up Form</h2>
+    <div class="container" id="container">
+        <div class="form-container sign-up-container">
+            <form class="form" id="form1" action="">
+                <h1>Create Account</h1>
+                <div class="icon-social">
+                    <a class="icon-social-link" href="">
+                        <i class="fa-brands icon fa-facebook-f" style="color: #ffffff;"></i>
+                    </a>
+                    <a class="icon-social-link" href="">
+                        <i class="fa-brands icon fa-instagram" style="color: #ffffff;"></i>
+                    </a>
+                    <a class="icon-social-link" href="">
+                        <i class="fa-brands icon fa-youtube" style="color: #ffffff;"></i>
+                    </a>
+                    <a class="icon-social-link" href="">
+                        <i class="fa-brands icon fa-twitter" style="color: #ffffff;"></i>
+                    </a>
+                </div>
+                <span>or use your email for registration</span>
+               <div class="form-control">
+                    <input id="nameRegis" type="text"placeholder="Name"/>
+                    <span class="form-mess"></span>
+               </div>
+                <div class="form-control">
+                    <input id="emailRegis" type="email" placeholder="Email"/>
+                     <span class="form-mess"></span>
+                </div>
+               <div class="form-control">
+                    <input id="passRegis"type="password"placeholder="Password"/>
+                     <span class="form-mess"></span>
+               </div>
+               <div class="form-control">
+                    <input id="confirmPass" type="password"placeholder="Confirm Password"/>
+                     <span class="form-mess"></span>
+               </div>
+                <button>Sign Up</button>
+            </form>
+        </div>
+        <div class="form-container sign-in-container">
+            <form class="form" id="form2" action="../index.html">
+                <h1>Sign in</h1>
+                <div class="icon-social">
+                    <a class="icon-social-link" href="">
+                        <i class="fa-brands icon fa-facebook-f" style="color: #ffffff;"></i>
+                    </a>
+                    <a class="icon-social-link" href="">
+                        <i class="fa-brands icon fa-instagram" style="color: #ffffff;"></i>
+                    </a>
+                    <a class="icon-social-link" href="">
+                        <i class="fa-brands icon fa-youtube" style="color: #ffffff;"></i>
+                    </a>
+                    <a class="icon-social-link" href="">
+                        <i class="fa-brands icon fa-twitter" style="color: #ffffff;"></i>
+                    </a>
+                </div>
+                <span>or use your account</span>
+                <div class="form-control">
+                    <input id="email" type="email" placeholder="Email"/>
+                     <span class="form-mess"></span>
+                </div>
+                <div class="form-control">
+                    <input id="pass"type="password"placeholder="Password"/>
+                     <span class="form-mess"></span>
+               </div>
+                <a href="#">Forgot your password?</a>
+                <button>Sign In</button>
+            </form>
+        </div>
+        <div class="overlay-container">
+            <div class="overlay">
+                <div class="overlay-panel overlay-left">
+                    <h1>Welcome Back!</h1>
+                    <p>To keep connected with us please login with your personal info</p>
+                    <button class="ghost" id="signIn">Sign In</button>
+                </div>
+                <div class="overlay-panel overlay-right">
+                    <h1>Hello, Friend!</h1>
+                    <p>Enter your personal details and start journey with us</p>
+                    <button class="ghost" id="signUp">Sign Up</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="./validation.js"></script>
+    <script>
+
+        //mong mun trong tuong lai
+        Validation({
+            form:'#form1',
+            errorSelector:'.form-mess',
+            rules:[
+                Validation.isRequired('#nameRegis'),
+                Validation.isEmail('#emailRegis'),
+                Validation.isLength('#passRegis',8),
+                Validation.isConfirm('#confirmPass', function () {
+                   return document.querySelector('#form1 #passRegis').value;
+                })
+            ]
+        })
+
+         Validation({
+            form:'#form2',
+            errorSelector:'.form-mess',
+            rules:[
+                Validation.isEmail('#email'),
+                Validation.isLength('#pass',8),
+            ]
+        })
+    </script>
+</body>
+</html>

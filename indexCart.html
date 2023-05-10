@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css"
+    />
+    <!-- Fontawesome -->
+    <link rel="stylesheet" href="./assets/fonts/fontawesome-free-6.4.0-web/css/all.min.css" />
+
+    <link rel="stylesheet" href="./mainCart.css"\>
+    <title>Cart</title>
+</head>
+<body onload=" loadProduct()">
+    <!-- HEADER -->
+    <header class="header-navbar">
+        <div class="nav-left">
+            <button class="btnBackMenu"><a href="index.html"> Back To Menu</a></button>
+        </div> 
+        <div class="nav-logo">
+             <img src="./assets/image/KFC_Logo.svg" alt="">
+        </div>
+        <div class="nav-right">
+            <!-- <a href="https://kfcvietnam.com.vn/en/menu/hot-deal" class="language">English</a> -->
+            <a href="#" class="language">Tiếng Việt</a>
+            <div class="icon">
+                <i class="fa-sharp fa-solid fa-circle-user fa-lg icon-items"></i>
+                <!-- <i class="fa-solid fa-cart-plus icon-items"></i> -->
+            </div>
+        </div>
+    </header>
+     <!-- DELIVERY -->
+    <section id="delivery">
+        <div class="delivery">
+            <span class="delivery-text">Let's order</span>
+            <span class="delivery-icon">
+                <i class="fa-solid fa-person-biking delivery-icon-item"></i>
+                for Delivery
+            </span>
+            <span class="delivery-icon">
+                <i class="fa-solid fa-truck-pickup delivery-icon-item"></i>
+                or Takeaway
+            </span>
+        </div>
+        <button class="btn-order">Change</button>
+    </section>
+    <!--Cart-->
+    <section id="myCart">
+        <div class="cart">
+            <div class="cart-heading">
+                <h1>my bucket</h1>
+            </div>
+            <div class="cart-content">
+                <div class="cart-left">
+                </div>
+                <div class="cart-right">
+                    <div class="stiky-cart">
+                        <div class="cart-heading">
+                        <span class="quantity" style="font-weight: 600; "></span>
+                        <span style="font-weight: 600;">item</span>
+                    </div>
+                    <hr>
+                    
+                    <div class="discount">
+                        <p class="discount-title">Have an Online Coupon?</p>
+                       <div class="discount-control">
+                            <div class="group">      
+                                <input type="text" required>
+                                <span class="highlight"></span>
+                                <span class="bar"></span>
+                                <label>Online Coupon *</label>
+                            </div>
+                            <button class="btn-discount">Redeem</button>
+                       </div>
+                    </div>
+                    <hr>
+                    <div>
+                        <div class="cart-item-title">
+                        </div>
+                    </div>
+                    <hr>
+                   <div class="cart-pay">
+                        <button class="btn-order">Checkout</button>
+                   </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+       
+    </section>
+    <!-- FOOTER -->
+    <footer class="footer">
+    <div class="contain">
+    <div class="footer-col">
+        <h3 class="heading" class="heading">Our Food</h3>
+            <ul class="footer-content" class="footer-content">
+                <li class="footer-items">Hot Deals</li>
+                <li class="footer-items">New Products</li>
+                <li class="footer-items">Combo for 1</li>
+                <li class="footer-items">Combo for sharing</li>
+                <li class="footer-items">Combo for sharing</li>
+                <li class="footer-items">Fried & Roasted</li>
+                <li class="footer-items">Rice - Burger - Pasta</li>
+                <li class="footer-items">Snack</li>
+                <li class="footer-items">Dessert & Drinks</li>
+            </ul>
+    </div>
+    <div class="footer-col">
+        <h3 class="heading">About KFC</h3>
+            <ul class="footer-content">
+                <li class="footer-items">Our Story</li>
+                <li class="footer-items">Promotion News</li>
+                <li class="footer-items">KFC NEWS</li>
+                <li class="footer-items">KFC Jobs</li>
+                <li class="footer-items">Book Your Party</li>
+            </ul>
+    </div>
+    <div class="footer-col">
+        <h3 class="heading">Contact Us</h3>
+            <ul class="footer-content">
+                <li class="footer-items">Order Tracker</li>
+                <li class="footer-items">Find a KFC</li>
+                <li class="footer-items">Contact Us</li>
+            </ul>
+    </div>
+    <div class="footer-col">
+        <h3 class="heading">Policy</h3>
+            <ul class="footer-content">
+                <li class="footer-items">Operation Policy</li>
+                <li class="footer-items">Terms And Conditions</li>
+                <li class="footer-items">Policy On Information Confidentiality</li>
+            </ul>
+    </div>
+    <div class="footer-col social">
+        <h3 class="heading">Download App</h3>
+            <ul class="footer-content">
+                <li class="footer-items"><img src="https://svgshare.com/i/5fq.svg" width="32" style="width: 32px;"></li>
+                <li class="footer-items"><img src="https://svgshare.com/i/5eA.svg" width="32" style="width: 32px;"></li>
+                <li class="footer-items"><img src="https://svgshare.com/i/5f_.svg" width="32" style="width: 32px;"></li>
+            </ul>
+    </div>
+    <div class="clearfix"></div>
+    </div>
+    <div class="social-link">
+        <p class="social-content">Kentucky Fried Chicken Vietnam Company. All rights reserved.</p>
+        <div class="icon-social">
+            <a class="icon-social-link" href="">
+                <i class="fa-brands icon fa-facebook-f" style="color: #ffffff;"></i>
+            </a>
+            <a class="icon-social-link" href="">
+                <i class="fa-brands icon fa-instagram" style="color: #ffffff;"></i>
+            </a>
+             <a class="icon-social-link" href="">
+                <i class="fa-brands icon fa-youtube" style="color: #ffffff;"></i>
+            </a>
+             <a class="icon-social-link" href="">
+                <i class="fa-brands icon fa-twitter" style="color: #ffffff;"></i>
+            </a>
+        </div>
+    </div>
+</footer>
+
+
+<script src="indexCart.js"></script>
+</body>
+</html>
