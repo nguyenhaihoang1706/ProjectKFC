@@ -1,111 +1,3 @@
-const newProduct = [
-  {
-    id: 1,
-    img: "./assets/image/newproduct/1.jpeg",
-    name: "1 Golden Egg Chicken",
-    price: 41000,
-    decription: "1 Golden Egg Chicken",
-    group: "New-Product",
-  },
-  {
-    id: 2,
-    img: "./assets/image/newproduct/1.jpeg",
-    name: "2 Golden Egg Chicken",
-    price: 79000,
-    decription: "2 Golden Egg Chicken",
-    group: "New-Product",
-  },
-  {
-    id: 3,
-    img: "./assets/image/newproduct/1.jpeg",
-    name: "3 Golden Egg Chicken",
-    price: 117000,
-    decription: "1 Golden Egg Chicken",
-    group: "New-Product",
-  },
-  {
-    id: 4,
-    img: "./assets/image/newproduct/1.jpeg",
-    name: "6 Golden Egg Chicken",
-    price: 231000,
-    decription: "6 Golden Egg Chicken",
-    group: "New-Product",
-  },
-  {
-    id: 5,
-    img: "./assets/image/newproduct/1.jpeg",
-    name: "Ga Oc Que",
-    price: 45000,
-    decription: "Ga Oc Que",
-    group: "Combo-for-1",
-  },
-  {
-    id: 6,
-    img: "./assets/image/newproduct/1.jpeg",
-    name: "Ga Oc Que A",
-    price: 78000,
-    decription: "01 Ga Oc Que + 04 Nuggets",
-    group: "Combo-for-1",
-  },
-  {
-    id: 7,
-    img: "./assets/image/combo for 1/D1-new.jpeg",
-    name: "Combo Fried Chicken",
-    price: 89000,
-    decription: "2 Fried Chicken + 1 FF (R) /2 Nuggets + 1 Lipton Regular",
-    group: "Combo-for-1",
-  },
-  {
-    id: 8,
-    img: "./assets/image/combo for 1/D2-new.jpeg",
-    name: "Combo Spaghetti",
-    price: 89000,
-    decription:
-      "1 Spaghetti with Tomato Sauce and Popcorn + 1 Fried Chicken/2 Tenderods + 1 Pepsi",
-    group: "Combo-for-1",
-  },
-  {
-    id: 9,
-    img: "./assets/image/combo for 1/D4-new.jpeg",
-    name: "D4 CBO Salad",
-    price: 79000,
-    decription: "1 Fried Chicken + 1 Salad Hat + 1 Pepsi Can",
-    group: "Combo-for-1",
-  },
-  {
-    id: 10,
-    img: "./assets/image/combo for 1/D5.jpeg",
-    name: "Combo Burger",
-    price: 91000,
-    decription:
-      "1 Burger Zinger/ Burger Flava/ Burger Shrimp + 1 Fried Chicken + 1 Pepsi Can",
-    group: "Combo-for-sharing",
-  },
-  {
-    id: 11,
-    img: "./assets/image/comboForSharing/CFS1.jpeg",
-    name: "Combo For Group 1",
-    price: 175000,
-    decription: "3 Fried Chicken + 1 Burger Shrimp + 2 Pepsi Can",
-    group: "Combo-for-sharing",
-  },
-  {
-    id: 12,
-    img: "./assets/image/comboForSharing/CFS2.jpeg",
-    name: "Combo Burger",
-    price: 195000,
-    decription: "4 Fried Chicken + 2 Pumcheese + 2 Pepsi Can",
-    group: "Combo-for-sharing",
-  },
-  {
-    id: 13,
-    img: "./assets/image/comboForSharing/CFS3.jpeg",
-    name: "Combo For Group 3",
-    price: 232000,
-    decription: "5 Fried Chicken + 1 Pop R /4 Nuggets + 2 Pepsi Can",
-    group: "Combo-for-sharing",
-  },
-];
 
 const quantity = document.querySelector(".quantity");
 let cartQuantity = document.querySelectorAll(".cart-quantity");
@@ -143,7 +35,7 @@ function renderCart() {
                </div>  
                <div class="cart-control">
                    <button onclick='decrease(${item2.id})' class="btn-decrease">-</button>
-                   <p class="cart-quantity">${item2.quantity}</p>
+                   <p class="d-flex cart-quantity">${item2.quantity}</p>
                    <button onclick='increase(${item2.id})' style="border-color: #000;" class="btn-increase">+</button>
                    <p class="cart-price">${numberWithCommas(item2.price)}</p>
                </div>
@@ -175,10 +67,14 @@ function decrease(productId) {
   for (let i = 0; i < listCart.length; i++) {
     if (listCart[i].id === productId && listCart[i].quantity > 1) {
       let sl = listCart[i].quantity--;
-      cartQuantity.forEach((itemqua) => {
-        itemqua.innerHTML = sl;
+      cartQuantity.forEach((itemqua,index) => {
+        itemqua.innerText = sl;
         renderSubTotal();
       });
+      // for (let i = 0; i < cartQuantity.length; i++) {
+      //   cartQuantity[i].innerHTML = sl;
+      //     renderSubTotal();
+      // }
     }
   }
   localStorage.setItem("cart", JSON.stringify(listCart));
