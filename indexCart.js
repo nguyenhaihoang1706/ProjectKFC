@@ -1,6 +1,5 @@
 
 const quantity = document.querySelector(".quantity");
-let cartQuantity = document.querySelectorAll(".cart-quantity");
 
 function numberWithCommas(x) {
   x = x.toString();
@@ -19,10 +18,9 @@ if (cart) {
 }
 
 function renderCart() {
-  let cart = JSON.parse(localStorage.getItem("cart"));
   let productEle = document.querySelector(".cart-left");
-  if (cart) {
-    cart.forEach((item2, key) => {
+  if (listCart) {
+    listCart.forEach((item2, key) => {
       let divCart = document.createElement("div");
       divCart.innerHTML += `
           <div class="cart-item">
@@ -30,13 +28,21 @@ function renderCart() {
                    <img src="${item2.img}" alt="">
                    <div class="cart-detail">
                        <span class="cart-title">${item2.name}</span>
-                       <a onclick=delCart(${item2.id}) class="cart-remove" href="">Remove</a>
+                       <a onclick=delCart(${
+                         item2.id
+                       }) class="cart-remove" href="">Remove</a>
                    </div>
                </div>  
                <div class="cart-control">
-                   <button onclick='decrease(${item2.id})' class="btn-decrease">-</button>
-                   <p class="d-flex cart-quantity">${item2.quantity}</p>
-                   <button onclick='increase(${item2.id})' style="border-color: #000;" class="btn-increase">+</button>
+                   <button onclick='decrease(${
+                     item2.id
+                   })' class="btn-decrease">-</button>
+                 <p class="d-flex cart-quantity" id='${item2.id}-quantity'>${
+        item2.quantity
+      }</p>
+                   <button onclick='increase(${
+                     item2.id
+                   })' style="border-color: #000;" class="btn-increase">+</button>
                    <p class="cart-price">${numberWithCommas(item2.price)}</p>
                </div>
            </div>
@@ -49,11 +55,12 @@ renderCart();
 
 function increase(productId) {
   let cartQuantity = document.querySelectorAll(".cart-quantity");
+  let oldQuantity = document.getElementById(`${productId}-quantity`);
   for (let i = 0; i < listCart.length; i++) {
     if (listCart[i].id === productId) {
       let sl = listCart[i].quantity++;
       cartQuantity.forEach((itemqua) => {
-        itemqua.innerHTML = sl;
+        oldQuantity.innerHTML = sl;
         renderSubTotal();
       });
     }
@@ -64,11 +71,12 @@ function increase(productId) {
 
 function decrease(productId) {
   let cartQuantity = document.querySelectorAll(".cart-quantity");
+   let oldQuantity = document.getElementById(`${productId}-quantity`);
   for (let i = 0; i < listCart.length; i++) {
     if (listCart[i].id === productId && listCart[i].quantity > 1) {
       let sl = listCart[i].quantity--;
       cartQuantity.forEach((itemqua,index) => {
-        itemqua.innerText = sl;
+        oldQuantity.innerText = sl;
         renderSubTotal();
       });
       // for (let i = 0; i < cartQuantity.length; i++) {
